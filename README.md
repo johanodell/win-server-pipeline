@@ -65,7 +65,7 @@ Create DataSource → Cleanup
 
 ## Installation
 
-### Step 1: Create Namespace
+### Step 1: Namespace
 
 ```bash
 # Set as current project
