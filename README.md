@@ -333,7 +333,7 @@ ansible all -i "$VM_IP," -m win_ping \
 ### Default Administrator Credentials
 
 **Username**: `Administrator`
-**Password**: `r3dh4t1!` (base64 encoded in autounattend-with-winrm.xml)
+**Password**: `r3dh4t1!` #notsecret, generic (base64 encoded in autounattend-with-winrm.xml)
 
 ⚠️ **IMPORTANT**: Change this password after deployment or before building the image!
 
