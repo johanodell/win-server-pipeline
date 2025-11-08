@@ -1,0 +1,31 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  generateName: windows2022-install-
+  namespace: openshift-virtualization-os-images
+spec:
+  pipelineRef:
+    name: windows-efi-installer
+  params:
+    - name: winImageDownloadURL
+      value: "https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x409&culture=en-us&country=US"
+    - name: acceptEula
+      value: "true"
+    - name: autounattendConfigMapName
+      value: "windows2022-autounattend"
+    - name: baseDvName
+      value: "win2k22"
+    - name: baseDvNamespace
+      value: "openshift-virtualization-os-images"
+    - name: isoDVName
+      value: "win2k22-installer-iso"
+    - name: instanceTypeName
+      value: "u1.large"
+    - name: instanceTypeKind
+      value: "VirtualMachineClusterInstancetype"
+    - name: preferenceName
+      value: "windows.2k22.virtio"
+    - name: virtualMachinePreferenceKind
+      value: "VirtualMachineClusterPreference"
+    - name: storageClassName
+      value: "lvms-nvme-vg-immediate"
