@@ -5,11 +5,11 @@ This repository contains an automated pipeline for building Windows Server 2022 
 ## Overview
 
 This pipeline uses the **KubeVirt Windows EFI Installer** pipeline to create fully automated, sysprepped Windows Server 2022 images with:
-- ✅ VirtIO drivers pre-installed
-- ✅ WinRM configured for Ansible management
-- ✅ EFI boot support
-- ✅ Automatic sysprep and shutdown
-- ✅ Ready-to-use DataSource for VM deployment
+-  VirtIO drivers pre-installed
+-  WinRM configured for Ansible management
+-  EFI boot support
+-  Automatic sysprep and shutdown
+-  Ready-to-use DataSource for VM deployment
 
 ## Files in this Repository
 
@@ -333,7 +333,7 @@ ansible all -i "$VM_IP," -m win_ping \
 ### Default Administrator Credentials
 
 **Username**: `Administrator`
-**Password**: `p3zdh4t1!` (base64 encoded in autounattend-with-winrm.xml)
+**Password**: `r3dh4t1!` (base64 encoded in autounattend-with-winrm.xml)
 
 ⚠️ **IMPORTANT**: Change this password after deployment or before building the image!
 
@@ -348,11 +348,11 @@ The image is configured with:
 ### WinRM Configuration
 
 The image comes pre-configured with:
-- ✅ WinRM HTTP listener on port 5985
-- ✅ Basic Authentication enabled
-- ✅ Unencrypted traffic allowed
-- ✅ PowerShell RemoteSigned execution policy
-- ✅ Firewall rules configured
+-  WinRM HTTP listener on port 5985
+-  Basic Authentication enabled
+-  Unencrypted traffic allowed
+-  PowerShell RemoteSigned execution policy
+-  Firewall rules configured
 
 ### Network Settings
 
@@ -458,11 +458,11 @@ oc apply -f serviceaccount-pipeline.yaml
 ### Cannot Connect to VM via WinRM
 
 **Checklist**:
-1. ✅ VM is fully booted (wait 5 minutes after VM shows Running)
-2. ✅ VM has an IP address: `oc get vmi <vm-name> -o jsonpath='{.status.interfaces[0].ipAddress}'`
-3. ✅ WinRM port 5985 is accessible
-4. ✅ Using correct credentials (Administrator / p3zdh4t1!)
-5. ✅ Ansible is using `winrm` connection and `basic` auth
+1.  VM is fully booted (wait 5 minutes after VM shows Running)
+2.  VM has an IP address: `oc get vmi <vm-name> -o jsonpath='{.status.interfaces[0].ipAddress}'`
+3.  WinRM port 5985 is accessible
+4.  Using correct credentials (Administrator / p3zdh4t1!)
+5.  Ansible is using `winrm` connection and `basic` auth
 
 **Test manually**:
 ```bash
@@ -506,11 +506,11 @@ EOF
 ⚠️ **WARNING**: This configuration is designed for **lab/development environments**.
 
 ### Current Security Settings (NOT for Production)
-- ❌ Basic Authentication enabled (credentials sent in base64)
-- ❌ Unencrypted WinRM (HTTP, not HTTPS)
-- ❌ Simple default password
-- ❌ Firewall configured to allow all WinRM traffic
-- ❌ UAC in audit mode during setup
+-  Basic Authentication enabled (credentials sent in base64)
+-  Unencrypted WinRM (HTTP, not HTTPS)
+-  Simple default password
+-  Firewall configured to allow all WinRM traffic
+-  UAC in audit mode during setup
 
 ### Production Hardening Checklist
 For production deployments, you should:
